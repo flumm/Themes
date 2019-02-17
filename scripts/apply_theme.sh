@@ -4,6 +4,11 @@
 
 THEME=$1
 
+if [ ! -d "$HOME/.i3" ]
+then
+  mkdir $HOME/.i3
+fi
+
 echo '[*] Applying the theme..'
 
 if [ -d "../$THEME" ]
@@ -66,7 +71,7 @@ then
     echo ' [-] Failed to apply ./config/polybar/config configuration file'
   fi
 
-  if cp ../scripts/launch.sh ~/.config/polybar/launch.sh
+  if cp ../scripts/polybar/launch.sh ~/.config/polybar/launch.sh
   then
     chmod u+x ~/.config/polybar/launch.sh
     echo '  [+] .config/polybar/launch.sh script set up successfully'
@@ -74,7 +79,7 @@ then
     echo '  [-] Failed to apply .config/polybar/launch.sh script'
   fi
 
-  if cp ../scripts/music.sh ~/.config/polybar/music.sh
+  if cp ../scripts/polybar/music.sh ~/.config/polybar/music.sh
   then
     chmod u+x ~/.config/polybar/music.sh
     echo '  [+] .config/polybar/music.sh script set up successfully'
